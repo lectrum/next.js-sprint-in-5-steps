@@ -1,4 +1,5 @@
 import { Post } from '../../../types/post';
+import { Metadata } from 'next';
 
 export const revalidate = 3600;
 
@@ -20,6 +21,25 @@ async function getPost(id: string): Promise<Post> {
   }
   
   return res.json();
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const post = await getPost(id);
+  
+  return {
+    title: post.title,
+    description: post.body.substring(0, 160),
+    openGraph: {
+      title: post.title,
+      description: post.body.substring(0, 160),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.body.substring(0, 160),
+    },
+  };
 }
 
 interface Props {
