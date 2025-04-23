@@ -1,5 +1,15 @@
 import { Post } from '../../../types/post';
 
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  const posts = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=10').then((res) => res.json());
+  
+  return posts.map((post: Post) => ({
+    id: post.id.toString(),
+  }));
+}
+
 async function getPost(id: string): Promise<Post> {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
     next: { revalidate: 3600 }

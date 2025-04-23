@@ -1,6 +1,8 @@
 import PostCard from '../../components/PostCard';
 import { Post } from '../../types/post';
 
+export const revalidate = 3600;
+
 async function getPosts(): Promise<Post[]> {
   const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
     next: { revalidate: 3600 }
