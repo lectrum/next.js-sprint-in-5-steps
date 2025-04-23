@@ -2,9 +2,7 @@ import PostCard from '../../components/PostCard';
 import { Post } from '../../types/post';
 
 async function getPosts(): Promise<Post[]> {
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
-    next: { revalidate: 3600 }
-  });
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
   
   if (!res.ok) {
     throw new Error('Failed to fetch posts');
