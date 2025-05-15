@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Детальна SEO-стаття про основні принципи оптимізації сайту для пошукових систем.",
 };
 
-const MetadataPage = () => {
+export default function MetadataPage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 flex flex-col items-center py-12 px-4">
       <article
@@ -37,5 +37,3 @@ const MetadataPage = () => {
     </main>
   );
 };
-
-export default MetadataPage; 

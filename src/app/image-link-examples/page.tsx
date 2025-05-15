@@ -14,32 +14,32 @@ const HeavyComponent = dynamic(() => import('../../components/HeavyComponent'), 
   ssr: false,
 });
 
-const ImageLinkExamplesPage = () => (
-  <div className="space-y-10">
-    <h1 className="text-3xl font-bold text-indigo-900 mb-6">SEO Image</h1>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {/* Приклад Image */}
-      <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
-        <Image
-          src="/images/sample1.jpg"
-          alt="Приклад SEO зображення: ноутбук і код"
-          width={400}
-          height={300}
-          priority
-          sizes="(max-width: 768px) 100vw, 400px"
-          className="rounded-lg shadow-md"
-          title="SEO Image Example"
-        />
-        <span className="mt-2 text-sm text-gray-600">SEO-оптимізоване зображення</span>
-      </div>
-     
-    </div>
-    {/* HeavyComponent */}
-    <div className="mt-10">
-      <h2 className="text-2xl font-semibold text-indigo-800 mb-4">Імітація важкого компонента</h2>
-      <HeavyComponent />
-    </div>
-  </div>
-);
+export default function ImageLinkExamplesPage() {
+  return (
+    <div className="space-y-10">
+      <h1 className="text-3xl font-bold text-indigo-900 mb-6">SEO Image</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Приклад Image */}
+        <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
+          <Image
+            src="/images/sample1.jpg"
+            alt="Приклад SEO зображення: ноутбук і код"
+            width={400}
+            height={300}
+            priority
+            sizes="(max-width: 768px) 100vw, 400px"
+            className="rounded-lg shadow-md"
+            title="SEO Image Example"
+          />
+          <span className="mt-2 text-sm text-gray-600">SEO-оптимізоване зображення</span>
+        </div>
 
-export default ImageLinkExamplesPage; 
+      </div>
+      {/* HeavyComponent */}
+      <div className="mt-10">
+        <h2 className="text-2xl font-semibold text-indigo-800 mb-4">Імітація важкого компонента</h2>
+        <HeavyComponent />
+      </div>
+    </div>
+  );
+};

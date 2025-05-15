@@ -1,12 +1,11 @@
 'use client'
 
-import { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const HeavyComponent: FC = () => {
+export default function HeavyComponent() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Імітація важкого завантаження (наприклад, 2 секунди)
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
@@ -28,5 +27,3 @@ const HeavyComponent: FC = () => {
     </div>
   );
 };
-
-export default HeavyComponent; 
